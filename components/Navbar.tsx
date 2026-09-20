@@ -4,8 +4,10 @@ import { useState } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { snappy, spring } from "@/lib/motion";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
+  { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
@@ -25,8 +27,8 @@ export default function Navbar() {
       initial={{ y: -72, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={spring}
-      className={`sticky top-0 z-50 border-b backdrop-blur-xl transition-colors duration-500 ${
-        scrolled ? "border-white/10 bg-black/60" : "border-transparent bg-black/10"
+      className={`sticky top-0 z-50 border-b backdrop-blur-2xl backdrop-saturate-150 transition-colors duration-500 ${
+        scrolled ? "border-border bg-nav-bg" : "border-transparent bg-transparent"
       }`}
     >
       <nav className="relative mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
@@ -35,18 +37,19 @@ export default function Navbar() {
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.96 }}
           transition={snappy}
-          className="font-display text-lg font-semibold tracking-tight text-white"
+          className="font-display text-lg font-semibold tracking-tight text-on-surface"
         >
-          Portofolio<span className="text-zinc-500"></span>
+          Portofolio<span className="text-on-surface-muted"></span>
         </motion.a>
 
+        {/* Desktop nav links */}
         <ul className="hidden items-center md:flex" onMouseLeave={() => setHovered(null)}>
           {links.map((l) => (
             <li key={l.href} className="relative" onMouseEnter={() => setHovered(l.href)}>
               <a
                 href={l.href}
                 className={`relative z-10 block px-4 py-2 text-sm transition-colors duration-300 ${
-                  hovered === l.href ? "text-white" : "text-zinc-400"
+                  hovered === l.href ? "text-on-surface" : "text-on-surface-secondary"
                 }`}
               >
                 {l.label}
@@ -55,24 +58,29 @@ export default function Navbar() {
                 <motion.span
                   layoutId="nav-hover"
                   transition={snappy}
-                  className="absolute inset-0 rounded-full bg-white/10"
+                  className="absolute inset-0 rounded-full bg-nav-hover-bg"
                 />
               )}
             </li>
           ))}
         </ul>
 
-        <motion.button
-          type="button"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          whileTap={{ scale: 0.9 }}
-          transition={snappy}
-          onClick={() => setOpen((v) => !v)}
-          className="-mr-2 p-2 text-zinc-300 transition-colors hover:text-white md:hidden"
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </motion.button>
+        {/* Right side: theme toggle + mobile menu button */}
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+
+          <motion.button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            whileTap={{ scale: 0.9 }}
+            transition={snappy}
+            onClick={() => setOpen((v) => !v)}
+            className="-mr-2 p-2 text-on-surface-secondary transition-colors hover:text-on-surface md:hidden"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </motion.button>
+        </div>
 
         {/* Absolutely positioned so opening it never pushes page content */}
         <AnimatePresence>
@@ -82,14 +90,14 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={snappy}
-              className="absolute inset-x-0 top-full flex flex-col border-b border-white/10 bg-black/95 px-6 py-3 md:hidden"
+              className="absolute inset-x-0 top-full flex flex-col border-b border-border bg-surface/95 px-6 py-3 backdrop-blur-xl md:hidden"
             >
               {links.map((l) => (
                 <li key={l.href}>
                   <a
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="block py-3 text-zinc-300 transition-colors hover:text-white"
+                    className="block py-3 text-on-surface-secondary transition-colors hover:text-on-surface"
                   >
                     {l.label}
                   </a>
@@ -104,7 +112,7 @@ export default function Navbar() {
       <motion.div
         aria-hidden
         style={{ scaleX: progress }}
-        className="absolute inset-x-0 bottom-0 h-px origin-left bg-white/70"
+        className="absolute inset-x-0 bottom-0 h-px origin-left bg-on-surface/70"
       />
     </motion.header>
   );
