@@ -65,7 +65,7 @@ export default function Projects() {
   }, [embla, progress]);
 
   const arrow =
-    "flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-zinc-300 transition-colors duration-300 hover:border-white hover:bg-white hover:text-black disabled:pointer-events-none disabled:opacity-30";
+    "flex h-11 w-11 items-center justify-center rounded-full border border-border-hover text-on-surface-secondary transition-colors duration-300 hover:border-accent hover:bg-accent hover:text-accent-text disabled:pointer-events-none disabled:opacity-30";
 
   return (
     <section id="projects" className="py-20">
@@ -77,7 +77,7 @@ export default function Projects() {
           transition={spring}
           className="mb-10 flex items-end justify-between gap-6"
         >
-          <h2 className="font-display text-3xl font-semibold text-white sm:text-4xl">Featured Work</h2>
+          <h2 className="font-display text-3xl font-semibold text-on-surface sm:text-4xl">Featured Work</h2>
           <div className="flex gap-3">
             <motion.button whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.92 }} transition={snappy} aria-label="Previous project" className={arrow} disabled={!canPrev} onClick={() => embla?.scrollPrev()}>
               <ChevronLeft size={20} />
@@ -104,33 +104,33 @@ export default function Projects() {
                 <motion.article
                   whileHover={{ y: -6 }}
                   transition={snappy}
-                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-zinc-900 to-black transition-[border-color,box-shadow] duration-500 hover:border-white/40 hover:shadow-[0_0_40px_-12px_rgba(255,255,255,0.25)]"
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-surface-alt to-surface-card transition-[border-color,box-shadow] duration-500 hover:border-border-hover hover:shadow-[0_0_40px_-12px_var(--glow)]"
                 >
                   {/* Fixed aspect ratio + overflow-hidden = zoom without layout shift */}
                   <div className="relative aspect-[16/10] overflow-hidden">
                     {/* Swap this div for <Image src=... fill className="object-cover ..." /> */}
-                    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-white/15 via-zinc-800 to-zinc-950 transition-transform duration-700 ease-out will-change-transform group-hover:scale-105">
-                      <ImageIcon size={36} className="text-white/30" />
+                    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-placeholder-from via-placeholder-via to-placeholder-to transition-transform duration-700 ease-out will-change-transform group-hover:scale-105">
+                      <ImageIcon size={36} className="text-on-surface-muted" />
                     </div>
                   </div>
 
                   <div className="flex flex-1 flex-col p-6">
-                    <h3 className="font-display text-xl font-semibold text-white">{p.title}</h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-400">{p.description}</p>
+                    <h3 className="font-display text-xl font-semibold text-on-surface">{p.title}</h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-on-surface-secondary">{p.description}</p>
 
                     <ul className="mt-5 flex flex-wrap gap-2">
                       {p.tech.map((t) => (
-                        <li key={t} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-300">
+                        <li key={t} className="rounded-full border border-border bg-pill-bg px-3 py-1 text-xs text-pill-text">
                           {t}
                         </li>
                       ))}
                     </ul>
 
                     <div className="mt-6 flex gap-5 text-sm">
-                      <a href={p.live} className="flex items-center gap-1.5 text-zinc-300 transition-colors hover:text-white">
+                      <a href={p.live} className="flex items-center gap-1.5 text-on-surface-secondary transition-colors hover:text-on-surface">
                         <ExternalLink size={15} /> Live demo
                       </a>
-                      <a href={p.repo} className="flex items-center gap-1.5 text-zinc-300 transition-colors hover:text-white">
+                      <a href={p.repo} className="flex items-center gap-1.5 text-on-surface-secondary transition-colors hover:text-on-surface">
                         <Code size={15} /> Source
                       </a>
                     </div>
@@ -141,8 +141,8 @@ export default function Projects() {
           </div>
         </div>
 
-        <div aria-hidden className="mt-10 h-px w-full bg-white/10">
-          <motion.div style={{ scaleX: fill }} className="h-full origin-left bg-white" />
+        <div aria-hidden className="mt-10 h-px w-full bg-border">
+          <motion.div style={{ scaleX: fill }} className="h-full origin-left bg-accent" />
         </div>
       </div>
     </section>

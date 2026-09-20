@@ -7,9 +7,9 @@ import Magnetic from "./Magnetic";
 import { snappy, spring } from "@/lib/motion";
 
 const socials = [
-  { label: "GitHub", href: "https://github.com/your-username", icon: GithubIcon },
-  { label: "LinkedIn", href: "https://linkedin.com/in/your-username", icon: LinkedinIcon },
-  { label: "Email", href: "mailto:you@example.com", icon: Mail },
+  { label: "GitHub", href: "https://github.com/hudasetiawan", icon: GithubIcon },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/miftakhul-huda-dwi-setiawan-7644232a9/", icon: LinkedinIcon },
+  { label: "Email", href: "mailto:hudasetiawann15@gmail.com", icon: Mail },
 ];
 
 const container: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.12 } } };
@@ -25,12 +25,12 @@ export default function Contact() {
         viewport={{ once: true, amount: 0.4 }}
         className="mx-auto max-w-2xl text-center"
       >
-        <motion.h2 variants={item} className="font-display text-3xl font-semibold text-white sm:text-4xl">
+        <motion.h2 variants={item} className="font-display text-3xl font-semibold text-on-surface sm:text-4xl">
           Let&apos;s build something together
         </motion.h2>
-        <motion.p variants={item} className="mt-5 leading-relaxed text-zinc-400">
-          I&apos;m looking for my first front-end role and would love to hear about your team. If you have an opening
-          or just want to say hello, my inbox is always open.
+        <motion.p variants={item} className="mt-5 leading-relaxed text-on-surface-secondary">
+          I&apos;m always looking for new opportunities and would love to hear from you. 
+          If you have an opening or just want to say hello, my inbox is always open. Feel free to reach out!
         </motion.p>
 
         <motion.ul variants={container} className="mt-10 flex justify-center gap-4">
@@ -45,7 +45,7 @@ export default function Contact() {
                   whileHover={{ scale: 1.12 }}
                   whileTap={{ scale: 0.92 }}
                   transition={snappy}
-                  className="flex h-14 w-14 items-center justify-center rounded-full border border-white/15 text-zinc-300 transition-colors duration-300 hover:border-white hover:bg-white hover:text-black"
+                  className="flex h-14 w-14 items-center justify-center rounded-full border border-border text-on-surface-secondary transition-colors duration-300 hover:border-accent hover:bg-accent hover:text-accent-text"
                 >
                   <Icon width={22} height={22} />
                 </motion.a>

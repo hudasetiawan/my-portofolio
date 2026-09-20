@@ -15,7 +15,7 @@ const stack: { name: string; icon: LucideIcon }[] = [
 export default function TechStack() {
   return (
     <section id="skills" className="py-20">
-      <h2 className="mb-10 px-6 text-center font-display text-2xl font-semibold text-zinc-100 sm:text-3xl">
+      <h2 className="mb-10 px-6 text-center font-display text-2xl font-semibold text-on-surface sm:text-3xl">
         The tools I build with
       </h2>
 
@@ -27,9 +27,9 @@ export default function TechStack() {
               {stack.map(({ name, icon: Icon }) => (
                 <li
                   key={name}
-                  className="flex items-center gap-3 rounded-full border border-zinc-800 bg-zinc-900/60 px-5 py-3 text-sm text-zinc-300 transition-colors hover:border-white/30 hover:text-white"
+                  className="flex items-center gap-3 rounded-full border border-pill-border bg-pill-bg px-5 py-3 text-sm text-pill-text transition-colors hover:border-border-hover hover:text-on-surface"
                 >
-                  <Icon size={18} className="text-zinc-400" />
+                  <Icon size={18} className="text-on-surface-muted" />
                   {name}
                 </li>
               ))}
