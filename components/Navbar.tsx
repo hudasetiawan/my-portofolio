@@ -7,10 +7,10 @@ import { snappy, spring } from "@/lib/motion";
 import ThemeToggle from "./ThemeToggle";
 
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Who Am I", href: "#who-am-i" },
+  { label: "Tech Stack", href: "#tech-stack" },
+  { label: "What I've Built", href: "#what-ive-built" },
+  { label: "Let's Talk", href: "#let-talk" },
 ];
 
 export default function Navbar() {
