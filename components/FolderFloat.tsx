@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode, type PointerEvent } from 'react';
 import Matter from 'matter-js';
+import './FolderFloat.tsx';
 
 const { Bodies, Body, Composite, Engine } = Matter;
 

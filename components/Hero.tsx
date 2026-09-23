@@ -96,8 +96,7 @@ export default function Hero() {
           </Mask>
 
           <Mask className="mt-6 max-w-sm sm:max-w-md lg:max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-on-surface-secondary">
-            I am a Front-End Developer with a strong foundation in UI/UX design. I specialize in building highly responsive, 
-            accessible layouts using Tailwind CSS, while actively leveraging Next.js to deliver modern web experiences.
+            Crafting digital experiences where aesthetic design meets engineering precision.
           </Mask>
 
           <motion.div variants={fadeUp} className="pointer-events-auto mt-10 flex flex-wrap justify-center lg:justify-start gap-4">

@@ -19,16 +19,19 @@ export default function AboutMe() {
         className="mx-auto max-w-6xl px-6"
       >
         {/* === HEADER === */}
-        <div className="mb-16 flex flex-col items-start justify-between gap-10 md:flex-row md:items-end">
-          
-          {/* Kolom Kiri */}
-          <div className="flex-1">
-            <motion.div variants={item} className="mb-6 flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-on-surface-secondary">
-              <span className="h-1.5 w-1.5 rounded-full bg-on-surface-secondary"></span>
-              Who Am I
-            </motion.div>
+        <div className="mb-16 flex flex-col gap-6">
 
-            <motion.div variants={item} className="flex flex-col">
+          {/* 1. Label Berdiri Sendiri di Atas */}
+          <motion.div variants={item} className="flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-on-surface-secondary">
+            <span className="h-1.5 w-1.5 rounded-full bg-on-surface-secondary"></span>
+            Who Am I
+          </motion.div>
+
+          {/* 2. Baris Judul & Deskripsi (Sejajar Tengah) */}
+          <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-center">
+
+            {/* Kolom Kiri: Judul Raksasa */}
+            <motion.div variants={item} className="flex-1 flex flex-col">
               <h2 className="font-display text-5xl font-bold tracking-tight text-on-surface sm:text-6xl md:text-7xl">
                 Front-End Engineer
               </h2>
@@ -37,24 +40,30 @@ export default function AboutMe() {
                   text="& UI/UX Designer."
                   fontSize={72}
                   strokeWidth={1.5}
-                  /* Menggunakan CSS Variables agar warnanya dinamis mengikuti tema */
-                  strokeColor="var(--on-surface-secondary)" 
-                  fillColor="var(--on-surface)"   
+                  strokeColor="var(--on-surface-secondary)"
+                  fillColor="var(--on-surface)"
                   trigger="loop"
                   drawDuration={1.8}
                   className="max-sm:!text-5xl"
                 />
               </div>
             </motion.div>
+
+            {/* Kolom Kanan: Paragraf Deskripsi */}
+            <motion.div
+              variants={item}
+              // Lebar dinaikkan (lg:max-w-lg) agar teks lebih lega dan proporsional
+              className="flex w-full flex-col gap-5 text-lg leading-relaxed text-on-surface-secondary lg:max-w-lg"
+            >
+              <p>
+                I am a Front-End Engineer and UI/UX Designer who thrives at the intersection of design and technology. With a strong foundation in Informatics Education, I focus on creating intuitive, accessible, and user-centered digital experiences.
+              </p>
+              <p>
+                Currently, I am deepening my expertise in the modern React ecosystem, specifically Next.js and TypeScript, to bridge the gap between high-fidelity prototypes and scalable, high-performance web applications.
+              </p>
+            </motion.div>
+
           </div>
-          
-          {/* Kolom Kanan */}
-          <motion.p 
-            variants={item} 
-            className="w-full text-lg leading-relaxed text-on-surface-secondary md:max-w-md md:pb-4"
-          >
-            I specialize in turning complex problems into elegant, user-centered digital solutions. By bridging the gap between design thinking and modern web architecture, I build interfaces that are not only visually appealing but also highly performant.
-          </motion.p>
         </div>
 
         {/* === BENTO GRID === */}
@@ -84,7 +93,7 @@ export default function AboutMe() {
             <div className="mt-6 flex flex-col gap-4">
               <div className="flex items-end justify-between border-b border-border/60 pb-3">
                 <span className="text-sm font-medium text-on-surface-secondary">Degree</span>
-                <span className="text-sm font-semibold text-on-surface text-right">B.Ed. Informatics<br/>Engineering</span>
+                <span className="text-sm font-semibold text-on-surface text-right">B.Ed. Informatics<br />Engineering</span>
               </div>
               <div className="flex items-center justify-between border-b border-border/60 pb-3">
                 <span className="text-sm font-medium text-on-surface-secondary">Cumulative GPA</span>
