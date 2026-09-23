@@ -9,8 +9,8 @@ const sora = Sora({ subsets: ["latin"], variable: "--font-sora", display: "swap"
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Your Name | Front-End Engineer",
-  description: "Portfolio of Your Name, a front-end engineer building fast, accessible and polished web interfaces.",
+  title: "Huda Setiawan | Front-End Engineer",
+  description: "Portfolio of Huda Setiawan, a Front-End Engineer building fast, accessible and polished web interfaces.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

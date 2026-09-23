@@ -1,41 +1,102 @@
-import { Atom, Braces, Code, FileCode2, GitBranch, PenTool, Sparkles, Triangle, Wind, type LucideIcon } from "lucide-react";
+"use client";
 
-const stack: { name: string; icon: LucideIcon }[] = [
-  { name: "React", icon: Atom },
-  { name: "Next.js", icon: Triangle },
-  { name: "TypeScript", icon: FileCode2 },
-  { name: "JavaScript", icon: Braces },
-  { name: "Tailwind CSS", icon: Wind },
-  { name: "Framer Motion", icon: Sparkles },
-  { name: "HTML & CSS", icon: Code },
-  { name: "Git & GitHub", icon: GitBranch },
-  { name: "Figma", icon: PenTool },
-];
+import FolderFloat from "./FolderFloat";
+
+const folderTheme = {
+  folderColor: "#18181b", // zinc-900 
+  frontColor: "#27272a",  // zinc-800
+  paperColor: "#f4f4f5",  // zinc-100
+  itemColor: "#e4e4e7",   // zinc-200
+  itemTextColor: "#18181b",
+  labelColor: "#a1a1aa",  // zinc-400
+};
 
 export default function TechStack() {
   return (
-    <section id="skills" className="py-20">
-      <h2 className="mb-10 px-6 text-center font-display text-2xl font-semibold text-on-surface sm:text-3xl">
-        The tools I build with
-      </h2>
+    <section id="tech-stack" className="mx-auto w-full max-w-6xl px-6 py-24">
+      
+      {/* Header Seksi */}
+      <div className="mb-12">
+        <h2 className="font-display text-4xl font-bold tracking-tight text-on-surface sm:text-5xl">
+          What I Can Do
+        </h2>
+        <p className="mt-4 max-w-2xl text-lg text-on-surface-secondary">
+          Membangun solusi digital yang andal dengan menggabungkan keahlian teknis, pemecahan masalah, dan pemahaman mendalam tentang pengalaman pengguna.
+        </p>
+      </div>
 
-      <div className="group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
-        {/* Two identical lists; the track slides -50% for a seamless loop */}
-        <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
-          {[0, 1].map((copy) => (
-            <ul key={copy} aria-hidden={copy === 1} className="flex shrink-0 gap-4 pr-4">
-              {stack.map(({ name, icon: Icon }) => (
-                <li
-                  key={name}
-                  className="flex items-center gap-3 rounded-full border border-pill-border bg-pill-bg px-5 py-3 text-sm text-pill-text transition-colors hover:border-border-hover hover:text-on-surface"
-                >
-                  <Icon size={18} className="text-on-surface-muted" />
-                  {name}
-                </li>
-              ))}
-            </ul>
-          ))}
+      {/* Grid Utama */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+
+        {/* KARTU 01: Web Engineering */}
+        <div className="group flex h-[480px] flex-col justify-between overflow-hidden rounded-3xl border border-border-hover bg-surface/30 p-8 transition-colors hover:bg-surface/50">
+          <div>
+            <span className="mb-4 inline-block font-display text-lg font-bold text-on-surface-secondary opacity-50">01</span>
+            <h3 className="font-display text-2xl font-semibold text-on-surface">Web Engineering</h3>
+            <p className="mt-4 text-sm leading-relaxed text-on-surface-secondary">
+              Membangun antarmuka responsif dan sistem backend yang andal. Berpengalaman merancang arsitektur aplikasi berbasis data menggunakan framework modern.
+            </p>
+          </div>
+          
+          <div className="flex h-32 w-full items-end justify-center pb-4">
+            <FolderFloat 
+              {...folderTheme}
+              label="Tech Stack"
+              sublabel="Core technologies"
+              items={["Next.js", "TypeScript", "React", "Tailwind CSS", "Laravel", "MySQL"]}
+              spread={110} 
+              lift={30}
+              width={160}
+            />
+          </div>
         </div>
+
+        {/* KARTU 02: UI/UX Design */}
+        <div className="group flex h-[480px] flex-col justify-between overflow-hidden rounded-3xl border border-border-hover bg-surface/30 p-8 transition-colors hover:bg-surface/50">
+          <div>
+            <span className="mb-4 inline-block font-display text-lg font-bold text-on-surface-secondary opacity-50">02</span>
+            <h3 className="font-display text-2xl font-semibold text-on-surface">UI/UX Design</h3>
+            <p className="mt-4 text-sm leading-relaxed text-on-surface-secondary">
+              Merancang antarmuka berpusat pada pengguna dengan metodologi Design Thinking. Berfokus pada navigasi yang intuitif dan sistem desain yang konsisten.
+            </p>
+          </div>
+          
+          <div className="flex h-32 w-full items-end justify-center pb-4">
+            <FolderFloat 
+              {...folderTheme}
+              label="Design Tools"
+              sublabel="Workflow & Assets"
+              items={["Figma", "Design Thinking", "Wireframing", "Prototyping", "User Research"]}
+              spread={110}
+              lift={30}
+              width={160}
+            />
+          </div>
+        </div>
+
+        {/* KARTU 03: Leadership & Edu */}
+        <div className="group flex h-[480px] flex-col justify-between overflow-hidden rounded-3xl border border-border-hover bg-surface/30 p-8 transition-colors hover:bg-surface/50">
+          <div>
+            <span className="mb-4 inline-block font-display text-lg font-bold text-on-surface-secondary opacity-50">03</span>
+            <h3 className="font-display text-2xl font-semibold text-on-surface">Leadership & Edu</h3>
+            <p className="mt-4 text-sm leading-relaxed text-on-surface-secondary">
+              Mengoordinasikan tim lintas fungsi, memimpin inisiatif teknologi komunitas, dan merancang kurikulum pengajaran IT untuk mencetak talenta digital.
+            </p>
+          </div>
+          
+          <div className="flex h-32 w-full items-end justify-center pb-4">
+            <FolderFloat 
+              {...folderTheme}
+              label="Capabilities"
+              sublabel="Soft skills & Certs"
+              items={["Google PM Cert", "Team Leadership", "IT Educator", "Mapres 2025", "Agile"]}
+              spread={110}
+              lift={30}
+              width={160}
+            />
+          </div>
+        </div>
+
       </div>
     </section>
   );

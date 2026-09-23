@@ -103,7 +103,7 @@ export default function Hero() {
           <motion.div variants={fadeUp} className="pointer-events-auto mt-10 flex flex-wrap justify-center lg:justify-start gap-4">
             <Magnetic>
               <motion.a
-                href="#projects"
+                href="#what-ive-built"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.96 }}
                 transition={snappy}
@@ -114,7 +114,7 @@ export default function Hero() {
             </Magnetic>
             <Magnetic>
               <motion.a
-                href="#contact"
+                href="#let-talk"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.96 }}
                 transition={snappy}

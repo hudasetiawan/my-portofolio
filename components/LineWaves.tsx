@@ -146,15 +146,11 @@ void main() {
   float alpha = clamp(length(col), 0.0, 1.0);
 
   if (uLightMode > 0.5) {
-    vec3 weights = pow(max(vec3(rChannel, gChannel, bChannel), vec3(0.0)), vec3(3.0));
+    float ink = clamp(max(rChannel, max(gChannel, bChannel)) * uBrightness * 1.5, 0.0, 1.0);
+    vec3 weights = vec3(rChannel, gChannel, bChannel);
     float weightSum = max(weights.r + weights.g + weights.b, 0.0001);
     vec3 chroma = (weights.r * uColor1 + weights.g * uColor2 + weights.b * uColor3) / weightSum;
-    float neutral = min(chroma.r, min(chroma.g, chroma.b));
-    chroma = max(chroma - vec3(neutral * 0.92), vec3(0.0));
-    float peak = max(chroma.r, max(chroma.g, chroma.b));
-    chroma = pow(clamp(chroma / max(peak, 0.0001), 0.0, 1.0), vec3(1.08));
-    float ink = clamp(max(rChannel, max(gChannel, bChannel)) * uBrightness * 1.15, 0.0, 0.92);
-    gl_FragColor = vec4(mix(vec3(1.0), chroma, ink), 1.0);
+    gl_FragColor = vec4(chroma, ink);
   } else {
     gl_FragColor = vec4(col, alpha);
   }
@@ -187,8 +183,8 @@ export default function LineWaves({
     gl.clearColor(0, 0, 0, 0);
 
     let program: Program;
-    let currentMouse = [0.5, 0.5];
-    let targetMouse = [0.5, 0.5];
+    let currentMouse = [-1.0, -1.0];
+    let targetMouse = [-1.0, -1.0];
 
     function handleMouseMove(e: MouseEvent) {
       const rect = gl.canvas.getBoundingClientRect();
@@ -199,7 +195,7 @@ export default function LineWaves({
     }
 
     function handleMouseLeave() {
-      targetMouse = [0.5, 0.5];
+      targetMouse = [-1.0, -1.0];
     }
 
     function resize() {
@@ -258,8 +254,8 @@ export default function LineWaves({
         program.uniforms.uMouse.value[0] = currentMouse[0];
         program.uniforms.uMouse.value[1] = currentMouse[1];
       } else {
-        program.uniforms.uMouse.value[0] = 0.5;
-        program.uniforms.uMouse.value[1] = 0.5;
+        program.uniforms.uMouse.value[0] = -1.0;
+        program.uniforms.uMouse.value[1] = -1.0;
       }
 
       renderer.render({ scene: mesh });

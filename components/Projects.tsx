@@ -68,7 +68,7 @@ export default function Projects() {
     "flex h-11 w-11 items-center justify-center rounded-full border border-border-hover text-on-surface-secondary transition-colors duration-300 hover:border-accent hover:bg-accent hover:text-accent-text disabled:pointer-events-none disabled:opacity-30";
 
   return (
-    <section id="projects" className="py-20">
+    <section id="what-ive-built" className="py-20">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -77,7 +77,7 @@ export default function Projects() {
           transition={spring}
           className="mb-10 flex items-end justify-between gap-6"
         >
-          <h2 className="font-display text-3xl font-semibold text-on-surface sm:text-4xl">Featured Work</h2>
+          <h2 className="font-display text-3xl font-semibold text-on-surface sm:text-4xl">What I've Built</h2>
           <div className="flex gap-3">
             <motion.button whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.92 }} transition={snappy} aria-label="Previous project" className={arrow} disabled={!canPrev} onClick={() => embla?.scrollPrev()}>
               <ChevronLeft size={20} />

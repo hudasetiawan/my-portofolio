@@ -17,7 +17,7 @@ const item: Variants = { hidden: { opacity: 0, y: 40 }, show: { opacity: 1, y: 0
 
 export default function Contact() {
   return (
-    <section id="contact" className="px-6 py-24">
+    <section id="let-talk" className="px-6 py-24">
       <motion.div
         variants={container}
         initial="hidden"
