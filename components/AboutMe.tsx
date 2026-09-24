@@ -56,10 +56,10 @@ export default function AboutMe() {
               className="flex w-full flex-col gap-5 text-lg leading-relaxed text-on-surface-secondary lg:max-w-lg"
             >
               <p>
-                I am a Front-End Engineer and UI/UX Designer who thrives at the intersection of design and technology. With a strong foundation in Informatics Education, I focus on creating intuitive, accessible, and user-centered digital experiences.
+                Thriving at the intersection of design and technology, I focus on creating intuitive, accessible, and user-centered digital experiences backed by a strong foundation in Informatics Education.
               </p>
               <p>
-                Currently, I am deepening my expertise in the modern React ecosystem, specifically Next.js and TypeScript, to bridge the gap between high-fidelity prototypes and scalable, high-performance web applications.
+                Beyond crafting pixel-perfect interfaces and writing clean code, I am deeply passionate about tech education and community leadership. I believe the most impactful digital solutions are built through collaborative environments and continuous learning.
               </p>
             </motion.div>
 

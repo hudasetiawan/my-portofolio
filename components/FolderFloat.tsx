@@ -7,12 +7,13 @@ import './FolderFloat.tsx';
 const { Bodies, Body, Composite, Engine } = Matter;
 
 interface ItemObj {
-  label: string;
+  name: string;
   value: string;
+  icon?: ReactNode;
 }
 
 interface FolderFloatProps {
-  items?: (string | ItemObj)[];
+  items?: (string | { label?: string; name?: string; value?: string; icon?: ReactNode })[];
   label?: string;
   sublabel?: string;
   trigger?: 'hover' | 'click';
@@ -61,7 +62,10 @@ const layout = (list: ItemObj[], spread: number, lift: number, tilt: number, siz
   let width = 0;
   
   list.forEach((item, i) => {
-    const pw = sizes[i]?.w ?? PAD + item.label.length * CHAR;
+    // Beri tambahan estimasi lebar jika terdapat ikon di dalamnya
+    const iconPad = item.icon ? 26 : 0; 
+    const pw = sizes[i]?.w ?? PAD + item.name.length * CHAR + iconPad;
+    
     if (row.length && width + GAP + pw > spread * 2) {
       rows.push({ items: row, width });
       row = [];
@@ -157,12 +161,18 @@ export default function FolderFloat({
   const popTimer = useRef<NodeJS.Timeout | undefined>(undefined);
   const liveTimer = useRef<NodeJS.Timeout | undefined>(undefined);
   
-  const list: ItemObj[] = items.map(item => (typeof item === 'string' ? { label: item, value: item } : item));
+  // Normalisasi data input agar mendukung 'name', 'label', dan 'icon'
+  const list: ItemObj[] = items.map(item => {
+    if (typeof item === 'string') return { name: item, value: item };
+    const name = item.name || item.label || '';
+    return { name, value: item.value || name, icon: item.icon };
+  });
+
   const n = list.length;
-  const sub = sublabel || `${n} ${n === 1 ? 'note' : 'notes'}`;
+  const sub = sublabel || `${n} ${n === 1 ? 'item' : 'items'}`;
   const pos = layout(list, spread, lift, tilt, sizes);
 
-  const labelsKey = list.map(item => item.label).join('|');
+  const labelsKey = list.map(item => item.name).join('|');
   
   useLayoutEffect(() => {
     const measure = () => {
@@ -445,7 +455,11 @@ export default function FolderFloat({
                 if (!world.current.live || e.detail === 0) pick(item, i);
               }}
             >
-              <span className="folder-float__drift">{item.label}</span>
+              {/* PENYESUAIAN RENDER LENCANA ICON + TEKS */}
+              <span className="folder-float__drift flex items-center gap-2">
+                {item.icon && <span className="flex-shrink-0 flex items-center justify-center">{item.icon}</span>}
+                <span>{item.name}</span>
+              </span>
             </button>
           );
         })}
