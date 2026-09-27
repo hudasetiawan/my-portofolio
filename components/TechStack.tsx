@@ -54,7 +54,7 @@ const capabilities = [
 
 export default function TechStack() {
   return (
-    <section id="tech-stack" className="py-24 relative overflow-hidden">
+    <section id="tech-stack" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
       {/* Tambahkan TargetCursor secara lokal di seksi ini */}
       <TargetCursor 
         spinDuration={2}
@@ -64,19 +64,19 @@ export default function TechStack() {
         cursorColorOnTarget="#ffffff"
       />
 
-      <div className="mx-auto max-w-7xl px-6 relative z-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-10 items-center">
           
           {/* KOLOM KIRI: Teks & Grid Ikon */}
           <div className="col-span-1 lg:col-span-5 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-on-surface-secondary mb-4">
+              <div className="flex items-center gap-2 text-xs sm:text-sm font-medium uppercase tracking-widest text-on-surface-secondary mb-3 sm:mb-4">
                 <span className="h-1.5 w-1.5 rounded-full bg-on-surface-secondary"></span>
                 My Capabilities
               </div>
               
-              <div className="min-h-32 sm:min-h-36 flex items-start">
+              <div className="min-h-20 sm:min-h-28 lg:min-h-32 flex items-start">
                 <TextType 
                   as="h2"
                   text={[
@@ -89,16 +89,16 @@ export default function TechStack() {
                   pauseDuration={2500}
                   showCursor={true}
                   cursorCharacter="|"
-                  className="font-display text-4xl font-bold tracking-tight text-on-surface sm:text-5xl"
+                  className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-on-surface"
                 />
               </div>
 
-              <p className="mt-4 text-lg text-on-surface-secondary leading-relaxed max-w-md">
+              <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-on-surface-secondary leading-relaxed max-w-md">
                 I combine technical expertise, logical problem-solving, and a keen eye for design to build reliable and user-friendly digital solutions.
               </p>
 
-              {/* Grid Ikon */}
-              <div className="mt-10 grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-fit">
+              {/* Grid Ikon: Ditambahkan justify-center dan mx-auto agar posisinya di tengah pada layar mobile/tablet */}
+              <div className="mt-6 sm:mt-8 lg:mt-10 grid grid-cols-5 sm:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5 gap-2.5 sm:gap-3 lg:gap-4 mx-auto lg:mx-0 justify-center">
                 {mainIcons.map((item, idx) => (
                   <motion.div
                     key={item.name}
@@ -106,10 +106,9 @@ export default function TechStack() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.03, duration: 0.4 }}
-                    // Tambahkan class 'cursor-target' pada elemen ini
-                    className="cursor-target group relative flex h-14 w-14 items-center justify-center rounded-2xl bg-surface-alt/50 border border-border/50 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:bg-surface hover:shadow-lg hover:border-border-hover hover:z-50"
+                    className="cursor-target group relative flex h-11 w-11 sm:h-12 sm:w-12 lg:h-14 lg:w-14 items-center justify-center rounded-xl sm:rounded-2xl bg-surface-alt/50 border border-border/50 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:bg-surface hover:shadow-lg hover:border-border-hover hover:z-50"
                   >
-                    <span className="text-2xl transition-transform duration-300 group-hover:scale-110">
+                    <span className="text-lg sm:text-xl lg:text-2xl transition-transform duration-300 group-hover:scale-110">
                       {item.icon}
                     </span>
                     
@@ -124,7 +123,7 @@ export default function TechStack() {
           </div>
 
           {/* KOLOM KANAN: Kartu Kategori */}
-          <div className="col-span-1 lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+          <div className="col-span-1 lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 h-full">
             {capabilities.map((cap, idx) => (
               <motion.div
                 key={cap.id}
@@ -132,31 +131,31 @@ export default function TechStack() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                // Tambahkan class 'cursor-target' pada elemen ini
-                className="cursor-target group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-surface-card p-8 shadow-sm transition-all duration-500 hover:border-border-hover hover:bg-surface hover:shadow-[0_0_40px_-15px_var(--glow)] dark:shadow-none min-h-[420px]"
+                className="cursor-target group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface-card p-5 sm:p-6 lg:p-8 shadow-sm transition-all duration-500 hover:border-border-hover hover:bg-surface hover:shadow-[0_0_40px_-15px_var(--glow)] dark:shadow-none min-h-[320px] sm:min-h-[360px] lg:min-h-[420px]"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-surface-alt/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                 <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-surface-alt border border-border/50 shadow-inner">
+                  <div className="flex items-start justify-between mb-4 sm:mb-6">
+                    <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl sm:rounded-2xl bg-surface-alt border border-border/50 shadow-inner">
                       {cap.icon}
                     </div>
-                    <span className="font-display text-4xl font-bold text-on-surface-secondary opacity-20 transition-opacity duration-300 group-hover:opacity-40">
+                    <span className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-on-surface-secondary opacity-20 transition-opacity duration-300 group-hover:opacity-40">
                       {cap.id}
                     </span>
                   </div>
 
-                  <h3 className="font-display text-2xl font-bold text-on-surface mb-4 group-hover:text-accent transition-colors duration-300">
+                  <h3 className="font-display text-lg sm:text-xl lg:text-2xl font-bold text-on-surface mb-3 sm:mb-4 group-hover:text-accent transition-colors duration-300">
                     {cap.title}
                   </h3>
                   
+                  {/* Diubah secara konsisten ke text-sm agar sangat nyaman dibaca di mobile */}
                   <p className="text-sm leading-relaxed text-on-surface-secondary">
                     {cap.desc}
                   </p>
                 </div>
 
-                <div className="relative z-10 mt-8 flex flex-wrap gap-2 pt-6 border-t border-border/50">
+                <div className="relative z-10 mt-5 sm:mt-6 lg:mt-8 flex flex-wrap gap-1.5 sm:gap-2 pt-4 sm:pt-6 border-t border-border/50">
                   {cap.tags.map((tag) => (
                     <span
                       key={tag}

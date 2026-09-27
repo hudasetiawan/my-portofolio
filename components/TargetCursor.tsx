@@ -120,7 +120,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
       yPercent: -50,
       x: window.innerWidth / 2 - initialOffset.x,
       y: window.innerHeight / 2 - initialOffset.y,
-      opacity: 0 // Sembunyikan secara default saat tidak hover
+      opacity: 0 
     });
 
     // Sembunyikan sudut-sudut kotak di awal

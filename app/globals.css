@@ -371,7 +371,7 @@
 
 /* Keeps anchored sections clear of the sticky navbar */
 html {
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 4rem;
 }
 
 body {

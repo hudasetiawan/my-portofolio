@@ -20,7 +20,7 @@ export default function ThemeToggle() {
       whileHover={{ scale: 1.12 }}
       whileTap={{ scale: 0.88 }}
       transition={snappy}
-      className="relative flex h-9 w-9 items-center justify-center rounded-full border border-border text-on-surface-secondary transition-colors duration-300 hover:border-border-hover hover:text-on-surface"
+      className="relative flex h-9 w-9 items-center justify-center rounded-full border border-border text-on-surface-secondary transition-colors duration-300 hover:border-border-hover hover:text-on-surface cursor-pointer"
     >
       <AnimatePresence mode="wait" initial={false}>
         {isDark ? (

@@ -9,8 +9,8 @@ import ThemeToggle from "./ThemeToggle";
 const links = [
   { label: "Who Am I", href: "#who-am-i" },
   { label: "Tech Stack", href: "#tech-stack" },
-  { label: "What I've Built", href: "#what-ive-built" },
-  { label: "Let's Talk", href: "#let-talk" },
+  { label: "What I've Built", href: "#projects" },
+  { label: "Let's Talk", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -31,13 +31,13 @@ export default function Navbar() {
         scrolled ? "border-border bg-nav-bg" : "border-transparent bg-transparent"
       }`}
     >
-      <nav className="relative mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <nav className="relative mx-auto flex h-14 sm:h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <motion.a
           href="#home"
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.96 }}
           transition={snappy}
-          className="font-display text-lg font-semibold tracking-tight text-on-surface"
+          className="font-display text-base sm:text-lg font-semibold tracking-tight text-on-surface"
         >
           Portofolio<span className="text-on-surface-muted"></span>
         </motion.a>
@@ -76,7 +76,7 @@ export default function Navbar() {
             whileTap={{ scale: 0.9 }}
             transition={snappy}
             onClick={() => setOpen((v) => !v)}
-            className="-mr-2 p-2 text-on-surface-secondary transition-colors hover:text-on-surface md:hidden"
+            className="-mr-2 p-2 text-on-surface-secondary transition-colors hover:text-on-surface md:hidden cursor-pointer"
           >
             {open ? <X size={22} /> : <Menu size={22} />}
           </motion.button>
@@ -90,14 +90,14 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={snappy}
-              className="absolute inset-x-0 top-full flex flex-col border-b border-border bg-surface/95 px-6 py-3 backdrop-blur-xl md:hidden"
+              className="absolute inset-x-0 top-full flex flex-col border-b border-border bg-surface/95 px-4 sm:px-6 py-2 sm:py-3 backdrop-blur-xl md:hidden"
             >
               {links.map((l) => (
                 <li key={l.href}>
                   <a
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="block py-3 text-on-surface-secondary transition-colors hover:text-on-surface"
+                    className="block py-2.5 sm:py-3 text-sm sm:text-base text-on-surface-secondary transition-colors hover:text-on-surface"
                   >
                     {l.label}
                   </a>

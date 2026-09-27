@@ -70,7 +70,6 @@ export default function Achievements() {
         };
     }, [selectedId]);
 
-    // Fungsi navigasi Carousel
     const nextImage = (e: React.MouseEvent, totalImages: number) => {
         e.stopPropagation();
         setCurrentImgIndex((prev) => (prev + 1) % totalImages);
@@ -81,35 +80,33 @@ export default function Achievements() {
     };
 
     return (
-        <section id="achievements" className="py-20 relative">
-            <div className="mx-auto max-w-6xl px-6">
+        <section id="achievements" className="py-16 sm:py-20 relative">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6">
 
                 {/* Header Seksi */}
-                <div className="mb-12">
-                    <div className="flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-on-surface-secondary mb-4">
+                <div className="mb-8 sm:mb-12">
+                    <div className="flex items-center gap-2 text-xs sm:text-sm font-medium uppercase tracking-widest text-on-surface-secondary mb-3 sm:mb-4">
                         <span className="h-1.5 w-1.5 rounded-full bg-on-surface-secondary"></span>
                         Social Proof
                     </div>
-                    <h2 className="font-display text-3xl font-bold tracking-tight text-on-surface sm:text-4xl">
+                    <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-on-surface">
                         Recognitions & Milestones
                     </h2>
                 </div>
 
-                {/* Grid Kartu Utama (SPLIT CARD DESIGN) */}
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                {/* Grid Kartu Utama */}
+                <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {achievements.map((item) => (
                         <motion.div
                             key={item.id}
                             layoutId={`card-container-${item.id}`}
                             onClick={() => setSelectedId(item.id)}
-                            className="group cursor-pointer flex flex-col overflow-hidden rounded-3xl border border-border bg-surface-card shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 hover:border-border-hover hover:shadow-[0_0_40px_-12px_var(--glow)] dark:shadow-none h-[380px]"
+                            className="group cursor-pointer flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface-card shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 hover:border-border-hover hover:shadow-[0_0_40px_-12px_var(--glow)] dark:shadow-none h-[320px] sm:h-[360px]"
                         >
-                            {/* Bagian Atas: Hero Image (60%) */}
                             <motion.div
                                 layoutId={`image-container-${item.id}`}
                                 className="relative h-3/5 w-full bg-surface-alt overflow-hidden border-b border-border/50"
                             >
-                                {/* Overlay Hitam transparan yang memudar saat di-hover */}
                                 <div className="absolute inset-0 bg-black/40 z-10 transition-colors duration-500 group-hover:bg-black/10 dark:bg-black/60 dark:group-hover:bg-black/20" />
 
                                 {item.images && item.images.length > 0 ? (
@@ -120,30 +117,28 @@ export default function Achievements() {
                                     />
                                 ) : (
                                     <div className="absolute inset-0 flex flex-col items-center justify-center text-on-surface-secondary/40 z-0">
-                                        <ImageIcon size={40} strokeWidth={1} className="mb-2 transition-transform duration-700 group-hover:scale-110" />
+                                        <ImageIcon size={40} strokeWidth={1} className="mb-2" />
                                         <span className="text-xs font-medium">Add Image</span>
                                     </div>
                                 )}
 
-                                {/* Lencana Kategori di pojok gambar */}
-                                <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-zinc-900 shadow-sm backdrop-blur-md border border-black/10 dark:bg-zinc-900/90 dark:text-zinc-100 dark:border-white/10">
+                                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20 flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-zinc-900 shadow-sm backdrop-blur-md border border-black/10 dark:bg-zinc-900/90 dark:text-zinc-100 dark:border-white/10">
                                     <item.icon size={14} className="text-zinc-900 dark:text-zinc-100" />
                                     {item.category}
                                 </div>
                             </motion.div>
 
-                            {/* Bagian Bawah: Informasi Detail (40%) */}
                             <motion.div
                                 layoutId={`text-container-${item.id}`}
-                                className="flex h-2/5 flex-col justify-center p-6 bg-gradient-to-br from-surface-alt/30 to-transparent"
+                                className="flex h-2/5 flex-col justify-center p-4 sm:p-6 bg-gradient-to-br from-surface-alt/30 to-transparent"
                             >
-                                <motion.h3 layoutId={`title-${item.id}`} className="font-display text-xl font-semibold text-on-surface line-clamp-1">
+                                <motion.h3 layoutId={`title-${item.id}`} className="font-display text-lg sm:text-xl font-semibold text-on-surface line-clamp-1">
                                     {item.title}
                                 </motion.h3>
-                                <motion.p layoutId={`issuer-${item.id}`} className="mt-1 text-sm text-on-surface-secondary line-clamp-1">
+                                <motion.p layoutId={`issuer-${item.id}`} className="mt-1 text-xs sm:text-sm text-on-surface-secondary line-clamp-1">
                                     {item.issuer}
                                 </motion.p>
-                                <div className="mt-auto flex items-center justify-between text-xs font-medium text-on-surface-secondary pt-4">
+                                <div className="mt-auto flex items-center justify-between text-xs font-medium text-on-surface-secondary pt-3">
                                     <span className="flex items-center gap-1"><Calendar size={14} /> {item.date}</span>
                                     <span className="text-accent group-hover:underline">View details &rarr;</span>
                                 </div>
@@ -153,11 +148,10 @@ export default function Achievements() {
                 </div>
             </div>
 
-            {/* Pop-Up Modal (Expandable Card) */}
+            {/* Pop-Up Modal */}
             <AnimatePresence>
                 {selectedId && (
                     <>
-                        {/* Latar Belakang Blur */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -166,8 +160,7 @@ export default function Achievements() {
                             className="fixed inset-0 z-40 bg-background/80 backdrop-blur-md"
                         />
 
-                        {/* Kontainer Pop-Up Tengah */}
-                        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 xl:p-0 pointer-events-none">
+                        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 pointer-events-none">
                             {achievements.map((item) => {
                                 if (item.id !== selectedId) return null;
                                 const hasImages = item.images && item.images.length > 0;
@@ -176,20 +169,18 @@ export default function Achievements() {
                                     <motion.div
                                         key={item.id}
                                         layoutId={`card-container-${item.id}`}
-                                        className="relative flex w-full max-w-5xl flex-col overflow-hidden rounded-3xl border border-border bg-surface shadow-2xl pointer-events-auto md:flex-row md:h-[550px]"
+                                        className="relative flex w-full max-w-5xl flex-col overflow-hidden rounded-3xl border border-border bg-surface shadow-2xl pointer-events-auto md:flex-row md:h-[550px] max-h-[90vh]"
                                     >
-                                        {/* Tombol Tutup */}
                                         <button
                                             onClick={() => setSelectedId(null)}
-                                            className="absolute right-4 top-4 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-black/20 text-white backdrop-blur-md transition-colors hover:bg-black/40 dark:bg-white/20 dark:text-on-surface dark:hover:bg-white/40"
+                                            className="absolute right-4 top-4 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-black/20 text-white backdrop-blur-md transition-colors hover:bg-black/40 dark:bg-white/20 dark:text-on-surface dark:hover:bg-white/40 cursor-pointer"
                                         >
                                             <X size={20} />
                                         </button>
 
-                                        {/* Kolom Kiri: CAROUSEL GAMBAR */}
                                         <motion.div
                                             layoutId={`image-container-${item.id}`}
-                                            className="relative flex h-64 w-full flex-shrink-0 items-center justify-center bg-surface-alt md:h-full md:w-1/2 overflow-hidden group/carousel"
+                                            className="relative flex h-56 w-full flex-shrink-0 items-center justify-center bg-surface-alt md:h-full md:w-1/2 overflow-hidden group/carousel"
                                         >
                                             {hasImages ? (
                                                 <>
@@ -207,17 +198,16 @@ export default function Achievements() {
                                                         <>
                                                             <button
                                                                 onClick={(e) => prevImage(e, item.images.length)}
-                                                                className="absolute left-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/30 text-white opacity-0 backdrop-blur-md transition-all hover:bg-black/50 group-hover/carousel:opacity-100"
+                                                                className="cursor-pointer absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/30 text-white opacity-0 backdrop-blur-md transition-all hover:bg-black/50 group-hover/carousel:opacity-100"
                                                             >
-                                                                <ChevronLeft size={24} />
+                                                                <ChevronLeft size={22} />
                                                             </button>
                                                             <button
                                                                 onClick={(e) => nextImage(e, item.images.length)}
-                                                                className="absolute right-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/30 text-white opacity-0 backdrop-blur-md transition-all hover:bg-black/50 group-hover/carousel:opacity-100"
+                                                                className="cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/30 text-white opacity-0 backdrop-blur-md transition-all hover:bg-black/50 group-hover/carousel:opacity-100"
                                                             >
-                                                                <ChevronRight size={24} />
+                                                                <ChevronRight size={22} />
                                                             </button>
-                                                            {/* Indikator Titik (Dots) */}
                                                             <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-1.5">
                                                                 {item.images.map((_, idx) => (
                                                                     <span
@@ -237,38 +227,37 @@ export default function Achievements() {
                                             )}
                                         </motion.div>
 
-                                        {/* Kolom Kanan: DETAIL TEKS */}
                                         <motion.div
                                             layoutId={`text-container-${item.id}`}
-                                            className="flex flex-col justify-center p-8 md:w-1/2 md:p-12 bg-surface"
+                                            className="flex flex-col justify-center p-6 sm:p-8 md:w-1/2 md:p-12 bg-surface overflow-y-auto"
                                         >
-                                            <motion.div layoutId={`title-${item.id}`} className="font-display text-3xl font-bold text-on-surface sm:text-4xl">
+                                            <motion.div layoutId={`title-${item.id}`} className="font-display text-2xl sm:text-3xl font-bold text-on-surface">
                                                 {item.title}
                                             </motion.div>
 
-                                            <motion.div layoutId={`issuer-${item.id}`} className="mt-2 text-lg font-medium text-accent flex items-center gap-2">
-                                                <item.icon size={20} />
+                                            <motion.div layoutId={`issuer-${item.id}`} className="mt-2 text-sm sm:text-base font-medium text-accent flex items-center gap-2">
+                                                <item.icon size={18} />
                                                 {item.issuer}
                                             </motion.div>
 
-                                            <div className="mt-6 flex flex-wrap items-center gap-3 text-sm font-medium text-on-surface-secondary border-y border-border/50 py-4">
+                                            <div className="mt-4 flex flex-wrap items-center gap-3 text-xs font-medium text-on-surface-secondary border-y border-border/50 py-3">
                                                 <span className="flex items-center gap-1.5 rounded-full bg-surface-alt px-3 py-1 text-on-surface">
                                                     {item.category}
                                                 </span>
                                                 <span className="flex items-center gap-1.5">
-                                                    <Calendar size={16} />
+                                                    <Calendar size={14} />
                                                     {item.date}
                                                 </span>
                                             </div>
 
-                                            {/* Deskripsi (Faded In) */}
                                             <motion.div
                                                 initial={{ opacity: 0, y: 10 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ delay: 0.2 }}
-                                                className="mt-6 flex-1 overflow-y-auto pr-2 custom-scrollbar"
+                                                className="mt-4 flex-1 overflow-y-auto pr-1"
                                             >
-                                                <p className="leading-relaxed text-on-surface-secondary text-base">
+                                                {/* Menggunakan text-sm agar nyaman dibaca di mobile */}
+                                                <p className="leading-relaxed text-on-surface-secondary text-sm">
                                                     {item.description}
                                                 </p>
                                             </motion.div>
