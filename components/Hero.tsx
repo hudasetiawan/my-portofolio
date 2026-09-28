@@ -132,7 +132,7 @@ export default function Hero() {
           {/* Kontainer Foto (Ganti src dengan path foto Anda di folder public) */}
           <div className="relative h-48 w-48 sm:h-64 sm:w-64 md:h-80 md:w-80 lg:h-96 lg:w-96 overflow-hidden rounded-2xl sm:rounded-3xl border-border-hover bg-nav-bg shadow-2xl">
             <Image
-              src="/img/huda-hero.jpg" // PASTIKAN FOTO BERNAMA profile.jpg ADA DI FOLDER public
+              src="/img/huda-hero.JPG"
               alt="Huda Setiawan"
               fill
               className="object-cover grayscale transition-all duration-500 hover:scale-105 hover:grayscale-0"
