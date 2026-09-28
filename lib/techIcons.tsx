@@ -8,6 +8,7 @@ import {
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { Cpu } from "lucide-react";
+import { FaJava } from "react-icons/fa";
 
 /**
  * Central icon registry keyed by lowercase tech name.
@@ -22,6 +23,7 @@ const iconRegistry: Record<string, (size: number, className?: string) => ReactNo
   css3:           (s, c) => <SiCss         className={c ?? "text-[#1572B6]"} size={s} />,
   css:            (s, c) => <SiCss         className={c ?? "text-[#1572B6]"} size={s} />,
   javascript:     (s, c) => <SiJavascript  className={c ?? "text-[#F7DF1E]"} size={s} />,
+  java: (s, c) => <FaJava className={c ?? "text-[#ED8B00]"} size={s} />,
   typescript:     (s, c) => <SiTypescript  className={c ?? "text-[#3178C6]"} size={s} />,
   php:            (s, c) => <SiPhp         className={c ?? "text-[#777BB4]"} size={s} />,
   dart:           (s, c) => <SiDart        className={c ?? "text-[#0175C2]"} size={s} />,
