@@ -45,6 +45,9 @@ export const metadata: Metadata = {
     description: "Digital portfolio of Huda Setiawan, a passionate Front-End Engineer.",
     images: ["/img/huda-hero.JPG"],
   },
+  verification: {
+    google: "a7eLkm1XNeWcoocxchCCI0MF5lVOWJ3FPkGzTcUFPp4",
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
