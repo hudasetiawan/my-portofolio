@@ -35,7 +35,7 @@ export default function Projects() {
   const displayedProjects = filteredProjects.slice(0, visibleCount);
 
   const handleViewMore = () => {
-    setVisibleCount((prev) => prev + 2);
+    setVisibleCount(filteredProjects.length);
   };
 
   return (

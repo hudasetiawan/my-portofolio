@@ -62,7 +62,7 @@ export default function Certifications() {
     const displayedCerts = filteredCerts.slice(0, visibleCount);
 
     const handleViewMore = () => {
-        setVisibleCount((prev) => prev + 3);
+        setVisibleCount(filteredCerts.length);
     };
 
     const selectedCert = certifications.find((item) => item.id === selectedId);
