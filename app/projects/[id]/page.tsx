@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { projects } from "@/data/projectsData";
 import { ArrowLeft, ExternalLink, Code2, Calendar, Users, Layers, CheckCircle2, AlertCircle, User } from "lucide-react";
 import { getTechIcon } from "@/lib/techIcons";
@@ -63,10 +64,13 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 {/* Mockup / Gambar Utama */}
                 <div className="relative h-48 sm:h-72 lg:h-[420px] w-full rounded-2xl sm:rounded-3xl bg-surface-alt overflow-hidden border border-border mb-8 sm:mb-12 flex items-center justify-center p-3 sm:p-6 shadow-sm">
                     {project.image ? (
-                        <img
+                        <Image
                             src={project.image}
                             alt={project.title}
-                            className="h-full w-full object-cover rounded-xl sm:rounded-2xl"
+                            fill
+                            priority
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 896px"
+                            className="object-cover rounded-xl sm:rounded-2xl"
                         />
                     ) : (
                         <div className="text-center text-on-surface-secondary/50">

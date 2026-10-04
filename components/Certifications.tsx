@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, ExternalLink, Calendar, X, ImageIcon, CheckCircle2, ChevronDown } from "lucide-react";
 
@@ -133,10 +134,12 @@ export default function Certifications() {
                                     className="relative h-3/5 w-full bg-surface-alt/80 overflow-hidden border-b border-border/50 flex items-center justify-center p-3"
                                 >
                                     {item.images && item.images.length > 0 ? (
-                                        <img
+                                        <Image
                                             src={item.images[0]}
                                             alt={item.title}
-                                            className="h-full w-full object-contain rounded-xl transition-transform duration-700 group-hover:scale-105 shadow-sm"
+                                            fill
+                                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                            className="object-contain rounded-xl transition-transform duration-700 group-hover:scale-105 shadow-sm"
                                         />
                                     ) : (
                                         <div className="flex flex-col items-center justify-center text-on-surface-secondary/40 z-0">
@@ -211,10 +214,12 @@ export default function Certifications() {
                                     className="relative flex h-72 w-full flex-shrink-0 items-center justify-center bg-surface-alt/90 md:h-full md:w-7/12 overflow-hidden border-r border-border/50 p-4 sm:p-6"
                                 >
                                     {selectedCert.images && selectedCert.images.length > 0 ? (
-                                        <img
+                                        <Image
                                             src={selectedCert.images[0]}
                                             alt={selectedCert.title}
-                                            className="h-full w-full object-contain rounded-2xl shadow-md"
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, 58vw"
+                                            className="object-contain rounded-2xl shadow-md"
                                         />
                                     ) : (
                                         <div className="flex flex-col items-center gap-3 text-on-surface-secondary/50">

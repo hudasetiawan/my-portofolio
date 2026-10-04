@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     Trophy, Medal, Award, X, ImageIcon, Calendar, GraduationCap,
@@ -110,10 +111,12 @@ export default function Achievements() {
                                 <div className="absolute inset-0 bg-black/40 z-10 transition-colors duration-500 group-hover:bg-black/10 dark:bg-black/60 dark:group-hover:bg-black/20" />
 
                                 {item.images && item.images.length > 0 ? (
-                                    <img
+                                    <Image
                                         src={item.images[0]}
                                         alt={item.title}
-                                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        fill
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                                     />
                                 ) : (
                                     <div className="absolute inset-0 flex flex-col items-center justify-center text-on-surface-secondary/40 z-0">
@@ -184,15 +187,21 @@ export default function Achievements() {
                                         >
                                             {hasImages ? (
                                                 <>
-                                                    <motion.img
+                                                    <motion.div
                                                         key={currentImgIndex}
-                                                        src={item.images[currentImgIndex]}
-                                                        alt={`${item.title} - Foto ${currentImgIndex + 1}`}
-                                                        className="h-full w-full object-cover"
+                                                        className="relative h-full w-full"
                                                         initial={{ opacity: 0, scale: 1.05 }}
                                                         animate={{ opacity: 1, scale: 1 }}
                                                         transition={{ duration: 0.4 }}
-                                                    />
+                                                    >
+                                                        <Image
+                                                            src={item.images[currentImgIndex]}
+                                                            alt={`${item.title} - Foto ${currentImgIndex + 1}`}
+                                                            fill
+                                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                                            className="object-cover"
+                                                        />
+                                                    </motion.div>
 
                                                     {item.images.length > 1 && (
                                                         <>

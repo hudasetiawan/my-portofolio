@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ImageIcon, ChevronDown, Sparkles, Layers, Users, ArrowRight } from "lucide-react";
 import { projects } from "@/data/projectsData";
 import { getTechIcon } from "@/lib/techIcons";
@@ -142,10 +143,12 @@ export default function Projects() {
               >
                 <div className="relative h-44 sm:h-56 lg:h-64 w-full bg-surface-alt/80 overflow-hidden border-b border-border/50 flex items-center justify-center p-3 sm:p-4">
                   {item.image ? (
-                    <img
+                    <Image
                       src={item.image}
                       alt={item.title}
-                      className="h-full w-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105"
                     />
                   ) : (
                     <div className="flex flex-col items-center justify-center text-on-surface-secondary/40">
